@@ -1,0 +1,98 @@
+student: !!seq
+ - marks
+ - name
+ - roll_no
+
+# like this also
+cities: [new delhi, mumbai]
+
+# some of the keys of the seq will the empty
+# sparse seq
+sparse seq:
+- hey
+- how
+-
+- Null
+- sup
+
+# nested sequence
+-
+ - apple
+ - mango
+ - banana
+-
+ - marks
+ - roll no
+ - date
+
+
+
+
+ # key: value pairs are called maps
+ !!map 
+
+ # nested mapping: map within an map
+ name: Osama Shabih
+ role:
+   age: 78
+   job: student
+
+# same as
+name: Osama Shabih
+role:{ age: 78,job: student}
+
+# pairs: keys may have duplicate values
+# !!pairs
+
+pair example: !!pairs
+ - job: student
+ - job: teacher
+
+# same as
+pair example: !!pairs [job: student, job:teacher]
+
+ # this will be an array of hast
+
+
+
+ # !!set will allow you to have unique values
+ name: !!set
+  ? kunal
+  ? Apoorv
+  ? Rahul
+
+
+# dictionary
+people: !!omap
+  - Kunal:
+      name: Kunal kushwaha
+      age: 78
+      hright: 678
+  - Osama:
+      name: Osama 0p
+      age: 50
+      height: 456  
+
+# reusing some properties
+liking: &likes
+  fav fruit: mango 
+  dislikes: grapes
+
+person1:
+  name: Kunal kushwaha
+  <<: *likes
+
+person2:
+  name: rahul kushwaha
+  <<: *likes
+  dislikes: berries
+
+# this will look like
+pereon2:
+  name: rahul 
+  fav fruits: mango 
+  dislikes: berries
+
+person3:
+  name: atul kushwaha
+  <<: *likesResourceName
